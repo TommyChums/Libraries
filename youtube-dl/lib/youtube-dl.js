@@ -22,7 +22,12 @@ const execa = universalify.fromPromise(require('execa'))
 function youtubeDl (args, options, cb) {
   return execa(ytdlBinary, args, options, function done (err, output) {
     if (err) return cb(err)
-    return cb(null, output.stdout.trim().split(/\r?\n/))
+    return cb(null, {
+      args,
+      output,
+      stdout: output.stdout.trim().split(/\r?\n/),
+      stderr: output.stderr,
+    })
   })
 }
 
@@ -45,8 +50,6 @@ function processData (data, options, stream) {
 
   if (options && options.start > 0 && options.end > 0) {
     headers.Range = 'bytes=' + options.start + '-' + options.end
-  } else {
-    headers.Range = 'bytes=0-' + item.filesize    
   }
 
   const req = request({
@@ -128,27 +131,29 @@ function call (urls, args1, args2, options = {}, cb) {
   if (urls !== null) {
     if (isString(urls)) urls = [urls]
 
-    for (let i = 0; i < urls.length; i++) {
-      const video = urls[i]
-      if (isYouTubeRegex.test(video)) {
-        // Get possible IDs.
-        const details = url.parse(video, true)
-        let id = details.query.v || ''
-        if (id) {
-          args.push('http://www.youtube.com/watch?v=' + id)
-        } else {
-          // Get possible IDs for youtu.be from urladdr.
-          id = details.pathname.slice(1).replace(/^v\//, '')
+    urls.forEach((vid) => {
+      const video = vid.trim().replace(/\r|\n/g, '');
+      if (video) {
+        if (isYouTubeRegex.test(video)) {
+          // Get possible IDs.
+          const details = url.parse(video, true)
+          let id = details.query.v || ''
           if (id) {
-            args.push(video)
-            args.unshift('-i')
+            args.push('http://www.youtube.com/watch?v=' + id)
+          } else {
+            // Get possible IDs for youtu.be from urladdr.
+            id = details.pathname.slice(1).replace(/^v\//, '')
+            if (id) {
+              args.push(video)
+              args.unshift('-i')
+            }
           }
+        } else {
+          if (i === 0) args.push('--')
+          args.push(video)
         }
-      } else {
-        if (i === 0) args.push('--')
-        args.push(video)
       }
-    }
+    })
   }
 
   return youtubeDl(args, options, cb)
@@ -247,12 +252,12 @@ ytdl.getInfo = function getInfo (url, args, options, cb) {
     }
 
     try {
-      info = data.map(parseInfo)
+      info = data.stdout.map(parseInfo)
     } catch (err) {
       return cb(err)
     }
 
-    return cb(null, info.length === 1 ? info[0] : info)
+    return cb(null, info)
   })
 }
 

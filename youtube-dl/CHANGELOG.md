@@ -1,29 +1,3 @@
-## 3.0.0 (2020-01-13)
-
-* ci: drop node8 support ([333fb7a](https://github.com/przemyslawpluta/node-youtube-dl/commit/333fb7a))
-* always add range header on data request ([4bd8904](https://github.com/przemyslawpluta/node-youtube-dl/commit/4bd8904))
-* test: adding download large audio ([871382f](https://github.com/przemyslawpluta/node-youtube-dl/commit/871382f))
-* test: fix failure due to latest server data ([4f5e44b](https://github.com/przemyslawpluta/node-youtube-dl/commit/4f5e44b))
-
-
-
-## 2.3.0 (2019-12-15)
-
-* Update get-binary.js ([b98425a](https://github.com/przemyslawpluta/node-youtube-dl/commit/b98425a))
-* refactor: log warning instead of an error if the binary is not found ([1ecca38](https://github.com/przemyslawpluta/node-youtube-dl/commit/1ecca38))
-* refactor: only log missing binary error if debug is enabled ([3535e36](https://github.com/przemyslawpluta/node-youtube-dl/commit/3535e36))
-* fix: log error if the youtube-dl binary does not exist ([1898e8c](https://github.com/przemyslawpluta/node-youtube-dl/commit/1898e8c))
-
-
-
-## 2.2.0 (2019-12-12)
-
-* Update downloader.js ([952826a](https://github.com/przemyslawpluta/node-youtube-dl/commit/952826a))
-* Update README.md ([341882f](https://github.com/przemyslawpluta/node-youtube-dl/commit/341882f))
-* fix: access to download binary from mirror sites ([7751e65](https://github.com/przemyslawpluta/node-youtube-dl/commit/7751e65))
-
-
-
 <a name="2.1.0"></a>
 # 2.1.0 (2019-10-29)
 

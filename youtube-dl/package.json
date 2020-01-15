@@ -2,7 +2,7 @@
   "name": "youtube-dl",
   "description": "youtube-dl driver for node",
   "homepage": "https://github.com/przemyslawpluta/node-youtube-dl#readme",
-  "version": "3.0.0",
+  "version": "2.1.0",
   "main": "./lib/youtube-dl.js",
   "author": {
     "name": "Roly Fentanes",
@@ -10,12 +10,12 @@
   },
   "contributors": [
     {
-      "name": "Roly Fentanes",
-      "email": "roly426@gmail.com"
-    },
-    {
       "name": "przemyslawpluta",
       "email": "przemekpluta@hotmail.com"
+    },
+    {
+      "name": "walheresq",
+      "email": "walheresq@hotmail.com"
     },
     {
       "name": "Kiko Beats",
@@ -46,20 +46,12 @@
       "email": "jack.lee2980@gmail.com"
     },
     {
-      "name": "Frederic Germain",
-      "email": "frederic.germain@gmail.com"
-    },
-    {
-      "name": "Calvin",
-      "email": "calvin@sealtelecom.com.br"
-    },
-    {
-      "name": "optikfluffel",
-      "email": "optik@fluffel.io"
-    },
-    {
       "name": "Jeremy Louie",
       "email": "jeremy@jeremylouie.com"
+    },
+    {
+      "name": "tifroz",
+      "email": "hhardel@gmail.com"
     },
     {
       "name": "Sergey M․",
@@ -70,24 +62,24 @@
       "email": "eragonj@eragonj.me"
     },
     {
+      "name": "optikfluffel",
+      "email": "optik@fluffel.io"
+    },
+    {
       "name": "t3rr0r",
       "email": "mail@t3rr0r.com"
     },
     {
-      "name": "tifroz",
-      "email": "hhardel@gmail.com"
+      "name": "Calvin",
+      "email": "calvin@sealtelecom.com.br"
     },
     {
       "name": "coderaiser",
       "email": "mnemonic.enemy@gmail.com"
     },
     {
-      "name": "liuye.adam",
-      "email": "liuye.adam@bytedance.com"
-    },
-    {
-      "name": "walheresq",
-      "email": "walheresq@hotmail.com"
+      "name": "Roly Fentanes",
+      "email": "roly426@gmail.com"
     },
     {
       "name": "Alireza Mirian",
@@ -171,7 +163,6 @@
     "youtube"
   ],
   "dependencies": {
-    "debug": "~4.1.1",
     "execa": "~3.2.0",
     "hh-mm-ss": "~1.2.0",
     "mkdirp": "~0.5.1",

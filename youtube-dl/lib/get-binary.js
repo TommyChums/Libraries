@@ -1,6 +1,5 @@
 'use strict'
 
-const debug = require('debug')('youtube-dl')
 const { readFileSync, existsSync } = require('fs')
 const path = require('path')
 
@@ -9,7 +8,7 @@ const detailsPath = path.join(binPath, 'details')
 
 module.exports = () => {
   if (!existsSync(detailsPath)) {
-    debug('unable to locate `youtube-dl` at ' + binPath)
+    throw new Error('ERROR: unable to locate `youtube-dl` at ' + binPath)
   }
 
   const details = JSON.parse(readFileSync(detailsPath))
